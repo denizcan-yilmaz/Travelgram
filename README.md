@@ -1,2 +1,2 @@
 # TripBuddy-MERN-Stack-
-MERN Stack Social Media App
+Personal Social Media App Project
