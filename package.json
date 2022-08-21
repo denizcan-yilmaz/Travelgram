@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "mongoose-unique-validator": "^3.1.0",
+    "uuid": "^8.3.2"
   }
 }
