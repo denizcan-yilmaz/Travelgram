@@ -13,9 +13,9 @@ app.use("/api/places", placesRoutes); // => /api/places...
 app.use("/api/users", usersRoutes);
 
 app.use((req, res, next) => {
-  const error = new HttpError("Could not find this place", 404);
+  const error = new HttpError("Place not found!", 404);
   throw error;
-}); // since synchronous, it is ok to throw it instead of calling next.
+});
 
 app.use((error, req, res, next) => {
   if (res.headerSent) {
@@ -26,8 +26,9 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect(
-    "mongodb+srv://deniz:deniz123@cluster0.icrrt2k.mongodb.net/?retryWrites=true&w=majority"
-  )
-  .then(() => app.listen(5000))
+  .connect("mongodb://localhost:27017/travelgram")
+  .then(() => {
+    app.listen(5000);
+    console.log("connected");
+  })
   .catch((err) => console.log(err));
