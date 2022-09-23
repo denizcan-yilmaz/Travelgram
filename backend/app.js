@@ -26,9 +26,6 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect("mongodb://localhost:27017/travelgram")
-  .then(() => {
-    app.listen(5000);
-    console.log("connected");
-  })
+  .connect("mongodb://localhost:27017?replicaSet=rs")
+  .then(() => app.listen(5000))
   .catch((err) => console.log(err));
